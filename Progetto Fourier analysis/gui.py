@@ -88,11 +88,17 @@ while True:
             # Opening file
             # Resize PNG file to size (500, 500)
             size = (500, 500)
-            im = Image.open(filename)
-            im = im.resize(size, resample=Image.BICUBIC)
+            img = Image.open(filename)
+
+            basewidth = 500
+
+            # im = im.resize(size, resample=Image.BICUBIC)
+            wpercent = (basewidth/float(img.size[0]))
+            hsize = int((float(img.size[1])*float(wpercent)))
+            img = img.resize((basewidth,hsize), Image.ANTIALIAS)
 
             # Convert im to ImageTk.PhotoImage after window finalized
-            image = ImageTk.PhotoImage(image=im)
+            image = ImageTk.PhotoImage(image=img)
             
             # Update
             window['-TOUT-'].update(filename)
