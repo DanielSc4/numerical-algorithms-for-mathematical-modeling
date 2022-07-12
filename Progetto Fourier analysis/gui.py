@@ -74,7 +74,7 @@ while True:
         fnames = [
             f for f in file_list 
             if os.path.isfile(os.path.join(folder, f)) 
-            and f.lower().endswith(('.png', '.gif', '.bpm'))
+            and f.lower().endswith(('.png', '.gif', '.bmp'))
         ]
         window['-FILE LIST-'].update(fnames)
 
@@ -113,8 +113,9 @@ while True:
     elif event == '-START_KEY-':
         try:
             if values['-FILE LIST-']:
+                print('hi')
                 filename = os.path.join(values['-FOLDER-'], values['-FILE LIST-'][0])
-                main(path_image = filename, F = values["-INTF-"], d = values["-INTd-"])
+                main(path_image = filename, F = int(values["-INTF-"]), d = int(values["-INTd-"]))
             else:
                 print('Si, ma inserisci prima il file')
                 print(f'Woooo {values["-INTF-"]}, {values["-INTd-"]}, {values["-FOLDER-"]}, {values["-FILE LIST-"]}')
