@@ -14,11 +14,11 @@ def plot_images_compare(img1, img2, parameters):
     fig = plt.figure()
     ax = fig.add_subplot(1, 2, 1)
     imgplot = plt.imshow(img1, cmap = 'Greys_r')
-    ax.set_title('Before')
+    ax.set_title('Before', fontsize = 35)
 
     ax = fig.add_subplot(1, 2, 2)
     imgplot = plt.imshow(img2, cmap = 'Greys_r')
-    ax.set_title(f'After - F: {parameters[0]}, d: {parameters[1]}')
+    ax.set_title(f'After - F: {parameters[0]}, d: {parameters[1]}', fontsize = 35)
 
     plt.show()
 
